@@ -1,0 +1,37 @@
+{
+  "name": "synclog",
+  "version": "1.0.0",
+  "description": "A synchronous logger for async hooks",
+  "main": "lib/synclog.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:trygve-lie/synclog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/trygve-lie/synclog/issues"
+  },
+  "homepage": "https://github.com/trygve-lie/synclog#readme",
+  "author": "Trygve Lie",
+  "license": "MIT",
+  "keywords": [
+    "log",
+    "logger",
+    "logging",
+    "async hooks"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "tap test/*.js",
+    "test:coverage": "tap test/*.js --cov"
+  },
+  "devDependencies": {
+    "tap": "^12.0.1",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.12.0"
+  }
+}

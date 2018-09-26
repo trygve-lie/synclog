@@ -1,6 +1,6 @@
 # synclog
 
-A synchronous logger for AsyncHooks.
+A synchronous logger for [AsyncHooks](https://nodejs.org/api/async_hooks.html).
 
 ## Installation
 
@@ -33,6 +33,9 @@ operations inside an AsyncHooks callback function will thus cause an infinite re
 An easy solution to this when debugging is to use a synchronous logging operation which
 will print to stdout and will not invoke AsyncHooks recursively because it is synchronous.
 Synclog is such a synchronous logger.
+
+When that is said; this logger can be used outside of AsyncHooks if you need a synchronous
+logger. Just be carefull and know how bad synchronous operations in node.js can be.
 
 ## Constructor
 
@@ -68,6 +71,51 @@ This module is synchronous and will block the entire process during writing. You
 not use this module in any production environment or where high performance is required.
 It will degrade your performance. Use this module only for debugging purposes when
 needed.
+
+## How to keep log statements without depending on this logger
+
+As said, its not recommended using this library in production code. Though, one might
+want to add log statements to your own code without having to depend on this module.
+This module is compatible with [abslog](https://github.com/trygve-lie/abslog) making
+it possible to put log statements in your AsyncHooks code and only pass in this logger
+in cases where one are debugging.
+
+Here is an example on how a `class` with an AsyncHook can abstract its logging away:
+
+```js
+const asyncHooks = require('async_hooks');
+const abslog = require('abslog');
+
+const MyHook = class MyHook {
+    constructor (logger) {
+        const log = abslog(logger);
+
+        const asyncHook = asyncHooks.createHook({
+            init(asyncId, type, triggerAsyncId, resource) {
+                log.info(asyncId, type, triggerAsyncId);
+            },
+        }).enable();
+    }
+};
+```
+
+When using the above class, ex locally, one can provide this module as a logger:
+
+```js
+const MyHook = require('MyHook');
+const SyncLog = require('synclog');
+
+const hook = new MyHook(new SyncLog());
+```
+
+When not debugging, ex in production, one can use the same class without passing
+in a logger at all:
+
+```js
+const MyHook = require('MyHook');
+
+const hook = new MyHook();
+```
 
 ## License
 

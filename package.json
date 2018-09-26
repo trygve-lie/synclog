@@ -1,7 +1,7 @@
 {
   "name": "synclog",
   "version": "1.0.0",
-  "description": "A synchronous logger for async hooks",
+  "description": "A synchronous logger for AsyncHooks",
   "main": "lib/synclog.js",
   "directories": {
     "lib": "lib"
@@ -20,7 +20,8 @@
     "log",
     "logger",
     "logging",
-    "async hooks"
+    "async hooks",
+    "AsyncHooks"
   ],
   "scripts": {
     "lint": "eslint .",

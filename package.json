@@ -1,6 +1,6 @@
 {
   "name": "synclog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A synchronous logger for AsyncHooks",
   "main": "lib/synclog.js",
   "directories": {

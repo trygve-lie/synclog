@@ -47,18 +47,18 @@ const log = new SyncLog(options);
 
 An Object containing misc configuration. The following values can be provided:
 
- * **enable** - `boolean` - Enable / disable logging. Default: true.
+ * **level** - `String` - What log level to output on. Can be `fatal`, `error`, `warn`, `info`, `debug` or `trace`. Default: `info`.
 
 ## API
 
 The SyncLog instance have the following API:
 
- * fatal(args)
- * error(args)
- * warn(args)
- * info(args)
- * debug(args)
- * trace(args)
+ * fatal([args])
+ * error([args])
+ * warn([args])
+ * info([args])
+ * debug([args])
+ * trace([args])
 
 All argumens (`args`) is printed to console.
 

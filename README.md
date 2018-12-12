@@ -2,6 +2,11 @@
 
 A synchronous logger for [AsyncHooks](https://nodejs.org/api/async_hooks.html).
 
+[![Dependencies](https://img.shields.io/david/trygve-lie/synclog.svg?style=flat-square)](https://david-dm.org/trygve-lie/synclog)
+[![Build Status](http://img.shields.io/travis/trygve-lie/synclog/master.svg?style=flat-square)](https://travis-ci.org/trygve-lie/synclog)
+[![Greenkeeper badge](https://badges.greenkeeper.io/trygve-lie/synclog.svg?style=flat-square)](https://greenkeeper.io/)
+[![Known Vulnerabilities](https://snyk.io/test/github/trygve-lie/synclog/badge.svg?targetFile=package.json&style=flat-square)](https://snyk.io/test/github/trygve-lie/synclog?targetFile=package.json)
+
 ## Installation
 
 ```bash
